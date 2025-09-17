@@ -1,11 +1,12 @@
 "use client";
 import { FC } from "react";
+import { motion } from "framer-motion";
+
 import { DollarSign, Plus, ShoppingBag, Users, Wallet } from "lucide-react";
 import Link from "next/link";
 import DashboardChart from "@/components/DeshbordChart/DeshBordChat";
 
 import ProductListed from "@/components/ProductListed/ProductListed";
-import { motion } from "framer-motion";
 
 export const statsData = [
   {
@@ -164,6 +165,7 @@ const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
+
 const Home: FC = () => {
   return (
     <div>

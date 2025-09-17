@@ -1,3 +1,5 @@
+"use client"; // <-- important for framer-motion
+
 import { FC } from "react";
 import { motion } from "framer-motion";
 
@@ -21,11 +23,12 @@ const StatCard: FC<StatCardProps> = ({
   return (
     <motion.div
       className="bg-white shadow rounded-lg p-6 flex flex-col justify-between"
-      initial={{ opacity: 0, y: 50 }} // start 50px below
-      animate={{ opacity: 1, y: 0 }} // move to normal
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
       whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
+      {/* Card content */}
       <div className="flex justify-between items-start">
         <div>
           <p className="text-sm font-medium text-gray-500">{title}</p>
