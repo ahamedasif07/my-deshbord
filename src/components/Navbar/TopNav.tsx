@@ -2,9 +2,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, Grid, ShoppingBag, Maximize2, Moon, Bell } from "lucide-react";
+import { useAppContext } from "../ContexProvider/ContexProvider";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { isSideBarOpen, setIsSideBarOpen } = useAppContext();
+
+  console.log(isSideBarOpen); // proper logging
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,13 +21,16 @@ export default function Navbar() {
   return (
     <div className="pb-6">
       <nav
-        className={`w-full px-4 py-2 flex items-center justify-between fixed top-0 z-50 transition-all duration-300
+        className={`w-full px-4 py-2 flex items-center justify-between transition-all duration-300
       ${scrolled ? "bg-white shadow-md" : "bg-transparent shadow-none"}`}
       >
         {/* Left Section */}
         <div className="flex items-center space-x-3">
           {/* Hamburger Menu */}
-          <button className="p-2 hover:bg-gray-100 rounded-lg">
+          <button
+            onClick={() => setIsSideBarOpen(!isSideBarOpen)}
+            className="p-2 hover:bg-gray-100 rounded-lg"
+          >
             <Menu className="w-6 h-6 text-gray-600" />
           </button>
 
@@ -32,7 +39,7 @@ export default function Navbar() {
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300"
+              className="pl-10 pr-4 py-2 absolute rounded-md bg-gray-100 focus:outline-none focus:ring focus:ring-blue-300"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
