@@ -180,8 +180,9 @@ const Home: FC = () => {
       <section>
         <DashboardChart />
       </section>
-      <section>
+      <section className="flex  gap-5 mt-4">
         <ProductListed products={products} productType="Best Selling Product" />
+        <ProductListed products={products} productType="Retrun product" />
       </section>
     </div>
   );

@@ -12,7 +12,7 @@ const ProductListed: React.FC<ProductListedProps> = ({
   productType,
 }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-5">
+    <div className="bg-white w-full rounded-2xl shadow-md p-5">
       {/* Header */}
       <div className="flex justify-between items-center mb-5">
         <h2 className="text-lg font-semibold">{productType}</h2>
@@ -52,7 +52,7 @@ const ProductListed: React.FC<ProductListedProps> = ({
               <div>
                 {product.status === "out-of-stock" ? (
                   <span className="text-xs font-medium text-red-600 bg-red-100 px-2 py-1 rounded-md">
-                    Out of stock
+                    00
                   </span>
                 ) : (
                   <p className="font-medium">{product.stock}</p>
