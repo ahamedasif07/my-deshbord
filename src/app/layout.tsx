@@ -32,22 +32,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppProvider>
-          <div className="flex ">
-            {/* Sidebar */}
-            <div className="">
-              <Sidebar />
-              {/* <ANotherbar /> */}
-            </div>
-
-            {/* Main area */}
-            <div className="">
-              {/* Top Navbar */}
-              <div>
-                <TopNav />
+          <div className="relative min-h-screen border-2 border-red-500">
+            {/* Sidebar (toggleable) */}
+            <div className="flex border-2 border-green-500 ">
+              <div className="w:1/4">
+                <Sidebar />
               </div>
-
-              {/* Scrollable main content */}
-              <div className="  min-h-screen  overflow-y-scroll bg-gray-50 p-4">
+              <div className="w-full">
+                <TopNav />
                 {children}
               </div>
             </div>
