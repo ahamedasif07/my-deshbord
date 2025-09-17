@@ -1,9 +1,46 @@
+"use client";
 import { FC } from "react";
 import { DollarSign, Plus, ShoppingBag, Users, Wallet } from "lucide-react";
 import Link from "next/link";
 import DashboardChart from "@/components/DeshbordChart/DeshBordChat";
 
 import ProductListed from "@/components/ProductListed/ProductListed";
+import { motion } from "framer-motion";
+
+export const statsData = [
+  {
+    title: "Total Earnings",
+    value: "$559.25k",
+    percentage: "+16.24%",
+    isPositive: true,
+    linkText: "View net earnings",
+    icon: <DollarSign className="w-6 h-6 text-green-600" />,
+  },
+  {
+    title: "Orders",
+    value: "36,894",
+    percentage: "-3.57%",
+    isPositive: false,
+    linkText: "View all orders",
+    icon: <ShoppingBag className="w-6 h-6 text-blue-500" />,
+  },
+  {
+    title: "Customers",
+    value: "183.35M",
+    percentage: "+29.08%",
+    isPositive: true,
+    linkText: "See details",
+    icon: <Users className="w-6 h-6 text-yellow-500" />,
+  },
+  {
+    title: "My Balance",
+    value: "$165.89k",
+    percentage: "+0.00%",
+    isPositive: true,
+    linkText: "Withdraw money",
+    icon: <Wallet className="w-6 h-6 text-gray-600" />,
+  },
+];
 
 type StatCardProps = {
   title: string;
@@ -112,7 +149,21 @@ export const products: Product[] = [
     status: "in-stock",
   },
 ];
+// Parent container variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2, // delay between each card animation
+    },
+  },
+};
 
+// Child card variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 const Home: FC = () => {
   return (
     <div>
@@ -121,7 +172,7 @@ const Home: FC = () => {
         <div className="flex items-center justify-between mb-6  border-2 border-green-400">
           {/* Left: Greeting */}
           <div>
-            <h2 className="text-xl font-semibold">Good Morning, Anna!</h2>
+            <h2 className="text-xl font-bold">Wellcome To Deshbord</h2>
           </div>
 
           {/* Right: Date + Add Product */}
@@ -135,46 +186,25 @@ const Home: FC = () => {
               })}
             </p>
             <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-2">
-              Add Product <Plus className="w-4 h-4" />
+              <span>Add Product</span>
+              <Plus className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 border-2 sm:grid-cols-2 lg:grid-cols-4 gap-[22px]">
-          <StatCard
-            title="Total Earnings"
-            value="$559.25k"
-            percentage="+16.24%"
-            isPositive={true}
-            linkText="View net earnings"
-            icon={<DollarSign className="w-6 h-6 text-green-600" />}
-          />
-          <StatCard
-            title="Orders"
-            value="36,894"
-            percentage="-3.57%"
-            isPositive={false}
-            linkText="View all orders"
-            icon={<ShoppingBag className="w-6 h-6 text-blue-500" />}
-          />
-          <StatCard
-            title="Customers"
-            value="183.35M"
-            percentage="+29.08%"
-            isPositive={true}
-            linkText="See details"
-            icon={<Users className="w-6 h-6 text-yellow-500" />}
-          />
-          <StatCard
-            title="My Balance"
-            value="$165.89k"
-            percentage="+0.00%"
-            isPositive={true}
-            linkText="Withdraw money"
-            icon={<Wallet className="w-6 h-6 text-gray-600" />}
-          />
-        </div>
+        {/* Grid with stagger animation */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {statsData.map((card) => (
+            <motion.div key={card.title} variants={cardVariants}>
+              <StatCard {...card} />
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
       {/* graph sectoion */}
       <section>

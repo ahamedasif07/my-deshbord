@@ -61,7 +61,7 @@ export default function Navbar() {
             </div>
 
             {/* Right Section */}
-            <div className="flex items-center space-x-5 pr-4 md:pr-6">
+            <div className="flex items-center gap-y-2 ">
               {/* Language */}
               <span className="text-xl hidden md:block">BD</span>
 
