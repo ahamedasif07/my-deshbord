@@ -31,19 +31,21 @@ export default function RootLayout({
       >
         <div className="flex min-h-screen">
           {/* Sidebar */}
-          <div className="w-64">
+          <div className="w-64  min-h-screen">
             <Sidebar />
           </div>
 
-          {/* Main area (TopNav + Content) */}
+          {/* Main area */}
           <div className="flex-1 flex flex-col">
             {/* Top Navbar */}
             <div>
               <TopNav />
             </div>
 
-            {/* Main content */}
-            <main className="flex-1 p-4 bg-gray-50">{children}</main>
+            {/* Scrollable main content */}
+            <div className="flex-1  min-h-screen  overflow-y-scroll bg-gray-50 p-4">
+              {children}
+            </div>
           </div>
         </div>
       </body>

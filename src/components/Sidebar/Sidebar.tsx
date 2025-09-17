@@ -141,58 +141,61 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-64 h-screen bg-[#3f4d9c] text-white p-4 flex flex-col">
-      {/* Logo */}
+    <aside className="w-64 h-screen fixed top-0 bg-[#3f4d9c] text-white p-4 flex flex-col">
+      {/* Logo - stays fixed at top */}
       <div className="text-center font-bold text-xl mb-6 uppercase">
-        zettabyte
+        Zettabyte
       </div>
 
-      {menu.map((section) => (
-        <div key={section.section} className="mb-6">
-          <p className="text-xs uppercase text-gray-300 mb-2">
-            {section.section}
-          </p>
-          <ul className="space-y-1">
-            {section.items.map((item) => (
-              <li key={item.title}>
-                <button
-                  onClick={() => toggleMenu(item.title)}
-                  className="flex items-center justify-between w-full px-3 py-2 rounded-md hover:bg-[#2f3b7a] transition"
-                >
-                  <div className="flex items-center space-x-3">
-                    {item.icon}
-                    <span className="font-medium">{item.title}</span>
-                    {item.badge && (
-                      <span className="ml-2 bg-red-500 text-xs px-2 py-0.5 rounded">
-                        {item.badge}
-                      </span>
+      {/* Scrollable menu - takes remaining height */}
+      <div className="flex-1 overflow-y-auto sidebar-scrollbar">
+        {menu.map((section) => (
+          <div key={section.section} className="mb-6">
+            <p className="text-xs uppercase text-gray-300 mb-2">
+              {section.section}
+            </p>
+            <ul className="space-y-1">
+              {section.items.map((item) => (
+                <li key={item.title}>
+                  <button
+                    onClick={() => toggleMenu(item.title)}
+                    className="flex items-center justify-between w-full px-3 py-2 rounded-md hover:bg-[#2f3b7a] transition"
+                  >
+                    <div className="flex items-center space-x-3">
+                      {item.icon}
+                      <span className="font-medium">{item.title}</span>
+                      {item.badge && (
+                        <span className="ml-2 bg-red-500 text-xs px-2 py-0.5 rounded">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    {openMenus[item.title] ? (
+                      <ChevronDown className="w-4 h-4" />
+                    ) : (
+                      <ChevronRight className="w-4 h-4" />
                     )}
-                  </div>
-                  {openMenus[item.title] ? (
-                    <ChevronDown className="w-4 h-4" />
-                  ) : (
-                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                  {openMenus[item.title] && (
+                    <ul className="ml-8 mt-1 space-y-1">
+                      {item.subItems?.map((sub) => (
+                        <li key={sub.title}>
+                          <Link
+                            href={sub.href}
+                            className="block px-3 py-1 text-sm text-gray-200 rounded hover:bg-[#2f3b7a]"
+                          >
+                            {sub.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </button>
-                {openMenus[item.title] && (
-                  <ul className="ml-8 mt-1 space-y-1">
-                    {item.subItems?.map((sub) => (
-                      <li key={sub.title}>
-                        <Link
-                          href={sub.href}
-                          className="block px-3 py-1 text-sm text-gray-200 rounded hover:bg-[#2f3b7a]"
-                        >
-                          {sub.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </aside>
   );
 };
