@@ -35,12 +35,12 @@ export default function RootLayout({
           <div className="relative min-h-screen border-2 border-red-500">
             {/* Sidebar (toggleable) */}
             <div className="flex border-2 border-green-500 ">
-              <div className="w:1/4">
+              <div className="">
                 <Sidebar />
               </div>
               <div className="w-full">
                 <TopNav />
-                {children}
+                <div className="py-12">{children}</div>
               </div>
             </div>
           </div>

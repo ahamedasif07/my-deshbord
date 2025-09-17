@@ -9,7 +9,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [isSideBarOpen, setIsSideBarOpen] = useState<string | boolean>(false);
+  const [isSideBarOpen, setIsSideBarOpen] = useState<string | boolean>(true);
 
   return (
     <AppContext.Provider value={{ isSideBarOpen, setIsSideBarOpen }}>

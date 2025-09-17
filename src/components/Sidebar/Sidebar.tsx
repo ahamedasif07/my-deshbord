@@ -17,8 +17,10 @@ import {
   Table,
   ChevronRight,
   ChevronDown,
+  Menu,
 } from "lucide-react";
 import { useAppContext } from "../ContexProvider/ContexProvider";
+import { AiOutlineClose } from "react-icons/ai";
 
 type MenuItem = {
   title: string;
@@ -145,15 +147,24 @@ const Sidebar = () => {
   return (
     <div className="">
       <div
-        className={`w-64 min-h-screen ${isSideBarOpen ? "block" : "hidden"}`}
+        className={`md:w-64 w-[200px]  min-h-screen ${
+          isSideBarOpen ? "block" : "hidden"
+        }`}
       >
         {/* Sidebar */}
         <aside
-          className={`fixed w-64 top-0 left-0 h-screen bg-[#3f4d9c] text-white p-4 flex flex-col transition-transform duration-300 z-50 `}
+          className={`fixed w-64 top-0 left-0 h-screen bg-[#3f4d9c] text-white p-4 flex flex-col transition-transform duration-300 z-500 `}
         >
           {/* Logo */}
-          <div className="text-center font-bold text-xl mb-6 uppercase">
+          <div className="text-center flex justify-between items-center font-bold text-xl mb-6 uppercase">
             Zettabyte
+            {/* Hamburger Menu */}
+            <button
+              onClick={() => setIsSideBarOpen(!isSideBarOpen)}
+              className="p-2  rounded-lg"
+            >
+              <AiOutlineClose className="w-6 h-6 text-gray-100" />
+            </button>
           </div>
 
           {/* Scrollable menu */}

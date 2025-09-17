@@ -117,8 +117,8 @@ const Home: FC = () => {
   return (
     <div>
       {/* basic information section */}
-      <section className="bg-gray-50 p-6 rounded-lg">
-        <div className="flex items-center justify-between mb-6">
+      <section className="bg-gray-50 p-4  border-2 border-green-400">
+        <div className="flex items-center justify-between mb-6  border-2 border-green-400">
           {/* Left: Greeting */}
           <div>
             <h2 className="text-xl font-semibold">Good Morning, Anna!</h2>
@@ -141,7 +141,7 @@ const Home: FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 border-2 sm:grid-cols-2 lg:grid-cols-4 gap-[22px]">
           <StatCard
             title="Total Earnings"
             value="$559.25k"
@@ -176,14 +176,14 @@ const Home: FC = () => {
           />
         </div>
       </section>
-      {/* graph section */}
-      {/* <section>
+      {/* graph sectoion */}
+      <section>
         <DashboardChart />
-      </section> */}
-      {/* <section className="flex  gap-5 mt-4">
+      </section>
+      <section className="flex lg:flex-row flex-col gap-5 p-4 ">
         <ProductListed products={products} productType="Best Selling Product" />
         <ProductListed products={products} productType="Retrun product" />
-      </section> */}
+      </section>
     </div>
   );
 };
