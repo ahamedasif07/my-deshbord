@@ -42,11 +42,11 @@ const menu: { section: string; items: MenuItem[] }[] = [
         ],
       },
       {
-        title: "Apps",
-        icon: <AppWindow className="w-5 h-5" />,
+        title: "Pages",
+        icon: <FileText className="w-5 h-5" />,
         subItems: [
-          { title: "Chat", href: "/" },
-          { title: "Email", href: "/" },
+          { title: "Posts", href: "/posts" },
+          { title: "Users", href: "/user" },
         ],
       },
       {

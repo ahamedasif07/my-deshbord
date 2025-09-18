@@ -23,7 +23,7 @@ export default function Navbar() {
     <div className="pb-6">
       <div
         className={`
-    fixed top-0 z-100 transition-all duration-300
+    fixed top-0 z-100 transition-all duration-300 shadow-lg
     w-screen md:${isSideBarOpen ? "w-[calc(100%-16rem)] " : " "}
   `}
       >
