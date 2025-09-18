@@ -1,7 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 
-const PostCard = ({ post }) => {
+type Post = {
+  id: number | string;
+  title: string;
+  body: string;
+};
+
+type PostCardProps = {
+  post: Post;
+};
+
+const PostCard: FC<PostCardProps> = ({ post }) => {
   return (
     <Link href={`/posts/${post.id}`}>
       <div className="w-full p-6 h-[300px] flex flex-col bg-white rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">

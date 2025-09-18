@@ -1,8 +1,22 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 
-const UserCard = ({ user, onView }) => {
+// Define types for user
+type User = {
+  name: string;
+  email: string;
+  company: {
+    name: string;
+  };
+};
+
+type UserCardProps = {
+  user: User;
+  onView: (user: User) => void;
+};
+
+const UserCard: FC<UserCardProps> = ({ user, onView }) => {
   return (
     <tr className="hover:bg-gray-50 cursor-pointer">
       <td className="border px-2 py-1 text-xs sm:text-sm md:text-base">
