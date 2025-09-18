@@ -112,12 +112,7 @@ const Home = () => {
           animate="visible"
         >
           {statsData.map((card) => (
-            <motion.div
-              key={card.title}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <motion.div key={card.title} initial="hidden" animate="visible">
               <StatCard {...card} />
             </motion.div>
           ))}
