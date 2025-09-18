@@ -22,7 +22,7 @@ const locations = [
 
 const SalesByLocationLeaflet = () => {
   return (
-    <div className="bg-white w-full  p-4 rounded-2xl border-2 border-red-300 shadow-md">
+    <div className="bg-white w-full  p-4 rounded-2xl  shadow-md">
       <h2 className="text-lg font-semibold mb-4">Sales by Locations</h2>
 
       <MapContainer

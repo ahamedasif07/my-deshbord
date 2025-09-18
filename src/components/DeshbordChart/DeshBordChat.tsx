@@ -29,9 +29,9 @@ const data = [
 
 export default function DashboardChart() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 gap-y-4  p-4 border-2 border-red-400">
+    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 gap-y-4  p-4 ">
       {/* Left: Revenue Chart */}
-      <div className="col-span-2 bg-white border-2 border-red-400  rounded-2xl shadow-md">
+      <div className="col-span-2 bg-white   rounded-2xl shadow-md">
         <h2 className="text-lg font-semibold mb-4">Revenue</h2>
 
         <div className="flex justify-between text-center mb-6">

@@ -21,7 +21,12 @@ export default function Navbar() {
 
   return (
     <div className="pb-6">
-      <div className="fixed top-0 z-100 min-w-screen">
+      <div
+        className={`
+    fixed top-0 z-100 transition-all duration-300
+    w-screen md:${isSideBarOpen ? "w-[calc(100%-16rem)] " : " "}
+  `}
+      >
         <nav
           className={`w-full   px-4 py-2  transition-all duration-300
       ${scrolled ? "bg-white shadow-md" : "bg-transparent shadow-none"}`}

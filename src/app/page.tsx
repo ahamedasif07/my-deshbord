@@ -172,8 +172,8 @@ const Home: FC = () => {
   return (
     <div className="">
       {/* basic information section */}
-      <section className="bg-gray-50 p-4  border-2 border-green-400">
-        <div className="flex items-center justify-between mb-6  border-2 border-green-400">
+      <section className="bg-gray-50 p-4  ">
+        <div className="flex items-center justify-between mb-6  ">
           {/* Left: Greeting */}
           <div>
             <h2 className="text-xl font-bold">Wellcome To Deshbord</h2>

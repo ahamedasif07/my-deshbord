@@ -33,9 +33,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppProvider>
-          <div className="relative min-h-screen border-2 border-red-500">
+          <div className="relative min-h-screen ">
             {/* Sidebar (toggleable) */}
-            <div className="flex border-2 border-green-500 ">
+            <div className="flex  ">
               <div>
                 <div className="hidden md:block">
                   <Sidebar />
