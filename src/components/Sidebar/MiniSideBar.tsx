@@ -147,7 +147,7 @@ const MiniSideBar = () => {
   return (
     <div className="md:hidden block">
       <div
-        className={`md:w-64 w-[200px] fixed  min-h-screen z-500 ${
+        className={`md:w-64 w-[200px] fixed top-0 left-0 min-h-screen z-500 ${
           isSideBarOpen ? "block" : "hidden"
         }`}
       >
