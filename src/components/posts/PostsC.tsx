@@ -10,7 +10,7 @@ const PostsC = () => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <div className="p-4 grid md:grid-cols-3 lg:grid-cols-4 sm:grid gap-4">
+    <div className="p-4 grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
       {posts?.map((post) => (
         <PostCard key={post.id} post={post}></PostCard>
       ))}
