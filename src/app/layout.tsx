@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import TopNav from "@/components/Navbar/TopNav";
+
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { AppProvider } from "@/components/ContexProvider/ContexProvider";
-import ANotherbar from "@/components/Sidebar/AnotherBar";
-import Navbar from "@/components/Navbar/NabBar";
+import Navbar from "@/components/Navbar/TopNav";
+import MiniSideBar from "@/components/Sidebar/MiniSideBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +36,20 @@ export default function RootLayout({
           <div className="relative min-h-screen border-2 border-red-500">
             {/* Sidebar (toggleable) */}
             <div className="flex border-2 border-green-500 ">
-              <div className="">
-                <Sidebar />
+              <div>
+                <div className="hidden md:block">
+                  <Sidebar />
+                </div>
+                <div className="md:hidden block">
+                  <MiniSideBar />
+                </div>
               </div>
               <div className="w-full">
-                <TopNav />
+                <div>
+                  <div>
+                    <Navbar />
+                  </div>
+                </div>
                 <div className="py-[50px]">{children}</div>
               </div>
             </div>

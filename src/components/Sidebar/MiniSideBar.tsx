@@ -136,7 +136,7 @@ const menu: { section: string; items: MenuItem[] }[] = [
   },
 ];
 
-const Sidebar = () => {
+const MiniSideBar = () => {
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
   const { isSideBarOpen, setIsSideBarOpen } = useAppContext();
 
@@ -145,9 +145,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="hidden md:block">
+    <div className="md:hidden block">
       <div
-        className={`md:w-64 w-[200px]  min-h-screen z-500 ${
+        className={`md:w-64 w-[200px] fixed  min-h-screen z-500 ${
           isSideBarOpen ? "block" : "hidden"
         }`}
       >
@@ -221,4 +221,4 @@ const Sidebar = () => {
     </div>
   );
 };
-export default Sidebar;
+export default MiniSideBar;
