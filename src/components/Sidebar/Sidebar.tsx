@@ -156,8 +156,9 @@ const Sidebar = () => {
           className={`fixed w-64 top-0 left-0 h-screen bg-[#3f4d9c] text-white p-4 flex flex-col transition-transform duration-300 z-500 `}
         >
           {/* Logo */}
+
           <div className="text-center mx-auto flex justify-between items-center font-bold text-xl mb-6 uppercase">
-            Zettabyte
+            <Link href="/">Zettabyte</Link>
           </div>
 
           {/* Scrollable menu */}
