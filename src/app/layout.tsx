@@ -5,6 +5,7 @@ import TopNav from "@/components/Navbar/TopNav";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import { AppProvider } from "@/components/ContexProvider/ContexProvider";
 import ANotherbar from "@/components/Sidebar/AnotherBar";
+import Navbar from "@/components/Navbar/NabBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export default function RootLayout({
               </div>
               <div className="w-full">
                 <TopNav />
-                <div className="py-12">{children}</div>
+                <div className="py-[50px]">{children}</div>
               </div>
             </div>
           </div>

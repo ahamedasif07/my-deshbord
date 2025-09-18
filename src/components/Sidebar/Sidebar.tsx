@@ -147,13 +147,13 @@ const Sidebar = () => {
   return (
     <div className="">
       <div
-        className={`md:w-64 w-[200px]  min-h-screen ${
+        className={`md:w-64 w-[200px] fixed top-0 left-0   min-h-screen ${
           isSideBarOpen ? "block" : "hidden"
         }`}
       >
         {/* Sidebar */}
         <aside
-          className={`fixed w-64 top-0 left-0 h-screen bg-[#3f4d9c] text-white p-4 flex flex-col transition-transform duration-300 z-500 `}
+          className={`h-screen bg-[#3f4d9c] text-white p-4 flex flex-col transition-transform duration-300 z-500 `}
         >
           {/* Logo */}
           <div className="text-center flex justify-between items-center font-bold text-xl mb-6 uppercase">

@@ -7,6 +7,7 @@ import Link from "next/link";
 import DashboardChart from "@/components/DeshbordChart/DeshBordChat";
 
 import ProductListed from "@/components/ProductListed/ProductListed";
+import { useAppContext } from "@/components/ContexProvider/ContexProvider";
 
 export const statsData = [
   {
@@ -155,7 +156,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2, // delay between each card animation
+      staggerChildren: 0.3, // delay between each card animation
     },
   },
 };
@@ -167,8 +168,9 @@ const cardVariants = {
 };
 
 const Home: FC = () => {
+  const { isSideBarOpen, setIsSideBarOpen } = useAppContext();
   return (
-    <div>
+    <div className={` ${isSideBarOpen ? "md:ml-64 ml-[200px]" : ""}`}>
       {/* basic information section */}
       <section className="bg-gray-50 p-4  border-2 border-green-400">
         <div className="flex items-center justify-between mb-6  border-2 border-green-400">
