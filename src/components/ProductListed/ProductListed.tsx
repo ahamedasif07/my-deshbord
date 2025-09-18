@@ -1,6 +1,7 @@
 // components/ProductListed.tsx
-import { Product } from "@/app/page";
+
 import { User } from "lucide-react";
+import { Product } from "../product/Product";
 
 interface ProductListedProps {
   products: Product[];
