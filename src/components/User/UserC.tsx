@@ -1,19 +1,35 @@
 "use client";
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useFetch } from "../ContexProvider/ContexProvider";
 import UserCard from "../Card/UserCard";
-import { motion, AnimatePresence } from "framer-motion";
 
-const UserC = () => {
+// Define User type
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+  };
+  address: {
+    street: string;
+    city: string;
+  };
+};
+
+const UserC: React.FC = () => {
   const {
     data: users,
     loading,
     error,
-  } = useFetch("https://jsonplaceholder.typicode.com/users");
+  } = useFetch<User[]>("https://jsonplaceholder.typicode.com/users");
 
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
-  const handleView = (user) => {
+  const handleView = (user: User) => {
     setSelectedUser(user);
   };
 
@@ -31,8 +47,7 @@ const UserC = () => {
     <div className="max-w-6xl mx-auto mt-6 p-4 sm:p-6">
       <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Users</h1>
 
-      {/* Responsive table container */}
-      <div className="overflow-x-auto w-full ">
+      <div className="overflow-x-auto w-full">
         <table className="w-full table-auto border border-gray-200">
           <thead>
             <tr className="bg-gray-100">
@@ -66,15 +81,15 @@ const UserC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50"
-            onClick={handleClose} // Close when clicking overlay
+            className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50"
+            onClick={handleClose}
           >
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               className="bg-white rounded-lg p-6 w-11/12 max-w-4xl h-[60vh] shadow-2xl mt-20 overflow-y-auto"
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+              onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold mb-4">{selectedUser.name}</h2>
               <p className="mb-2">
