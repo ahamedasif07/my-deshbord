@@ -2,47 +2,16 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 
-import { DollarSign, Plus, ShoppingBag, Users, Wallet } from "lucide-react";
 import Link from "next/link";
 import DashboardChart from "@/components/DeshbordChart/DeshBordChat";
 
 import ProductListed from "@/components/ProductListed/ProductListed";
 import { useAppContext } from "@/components/ContexProvider/ContexProvider";
-
-export const statsData = [
-  {
-    title: "Total Earnings",
-    value: "$559.25k",
-    percentage: "+16.24%",
-    isPositive: true,
-    linkText: "View net earnings",
-    icon: <DollarSign className="w-6 h-6 text-green-600" />,
-  },
-  {
-    title: "Orders",
-    value: "36,894",
-    percentage: "-3.57%",
-    isPositive: false,
-    linkText: "View all orders",
-    icon: <ShoppingBag className="w-6 h-6 text-blue-500" />,
-  },
-  {
-    title: "Customers",
-    value: "183.35M",
-    percentage: "+29.08%",
-    isPositive: true,
-    linkText: "See details",
-    icon: <Users className="w-6 h-6 text-yellow-500" />,
-  },
-  {
-    title: "My Balance",
-    value: "$165.89k",
-    percentage: "+0.00%",
-    isPositive: true,
-    linkText: "Withdraw money",
-    icon: <Wallet className="w-6 h-6 text-gray-600" />,
-  },
-];
+import { products } from "@/components/product/Product";
+import { statsData } from "@/components/statData/StatData";
+import { Plus } from "lucide-react";
+// best selling product
+// data/products.ts
 
 type StatCardProps = {
   title: string;
@@ -86,71 +55,6 @@ const StatCard: FC<StatCardProps> = ({
   );
 };
 
-// best selling product
-// data/products.ts
-export interface Product {
-  id: number;
-  name: string;
-  date: string;
-  price: number;
-  orders: number;
-  stock: number;
-  amount: number;
-  status: "in-stock" | "out-of-stock";
-}
-
-export const products: Product[] = [
-  {
-    id: 1,
-    name: "Branded T-Shirts",
-    date: "24 Apr 2021",
-    price: 29.0,
-    orders: 62,
-    stock: 510,
-    amount: 1798,
-    status: "in-stock",
-  },
-  {
-    id: 2,
-    name: "Bentwood Chair",
-    date: "19 Mar 2021",
-    price: 85.2,
-    orders: 35,
-    stock: 0,
-    amount: 2982,
-    status: "out-of-stock",
-  },
-  {
-    id: 3,
-    name: "Borosil Paper Cup",
-    date: "01 Mar 2021",
-    price: 14.0,
-    orders: 80,
-    stock: 749,
-    amount: 1120,
-    status: "in-stock",
-  },
-  {
-    id: 4,
-    name: "One Seater Sofa",
-    date: "11 Feb 2021",
-    price: 127.5,
-    orders: 56,
-    stock: 0,
-    amount: 7140,
-    status: "out-of-stock",
-  },
-  {
-    id: 5,
-    name: "Stillbird Helmet",
-    date: "17 Jan 2021",
-    price: 54,
-    orders: 74,
-    stock: 805,
-    amount: 3996,
-    status: "in-stock",
-  },
-];
 // Parent container variants
 const containerVariants = {
   hidden: {},
@@ -167,7 +71,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const Home: FC = () => {
+const Home = () => {
   const { isSideBarOpen, setIsSideBarOpen } = useAppContext();
   return (
     <div className="">
