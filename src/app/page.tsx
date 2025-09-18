@@ -67,8 +67,12 @@ const containerVariants = {
 
 // Child card variants
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 const Home = () => {
@@ -108,7 +112,12 @@ const Home = () => {
           animate="visible"
         >
           {statsData.map((card) => (
-            <motion.div key={card.title} variants={cardVariants}>
+            <motion.div
+              key={card.title}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <StatCard {...card} />
             </motion.div>
           ))}

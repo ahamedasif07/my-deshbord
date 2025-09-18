@@ -9,7 +9,7 @@ type StatCardProps = {
   percentage: string;
   isPositive: boolean;
   linkText: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 };
 
 const StatCard: FC<StatCardProps> = ({
