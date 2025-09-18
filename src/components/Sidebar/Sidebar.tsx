@@ -24,7 +24,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 type MenuItem = {
   title: string;
-  icon: React.ReactNode;
+  icon: React.ReactNode; // safer than JSX.Element
   subItems?: { title: string; href: string }[];
   badge?: string;
 };
